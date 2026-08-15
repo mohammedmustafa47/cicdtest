@@ -11,6 +11,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: authdb
+          POSTGRES_USER: django_user
+          POSTGRES_PASSWORD: django_password
+        ports:
+          - 5432:5432
+
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
