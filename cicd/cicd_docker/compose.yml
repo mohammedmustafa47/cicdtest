@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:15
+    container_name: django_cicd_db
+    environment:
+      POSTGRES_DB: authdb
+      POSTGRES_USER: django_user
+      POSTGRES_PASSWORD: django_password
+    ports:
+      - "5435:5432"
+    volumes:
+      - django_cicd_data:/var/lib/postgresql/data
+
+volumes:
+  django_cicd_data:
