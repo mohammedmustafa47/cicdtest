@@ -80,8 +80,8 @@ DATABASES = {
         "NAME": "authdb",
         "USER": "django_user",
         "PASSWORD": "django_password",
-        "HOST": "localhost",
-        "PORT": "5435",
+        "HOST": "postgres",
+        "PORT": "5432",
     }
 }
 
