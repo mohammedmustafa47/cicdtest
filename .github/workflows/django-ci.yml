@@ -15,7 +15,7 @@ jobs:
       DB_NAME: authdb
       DB_USER: django_user
       DB_PASSWORD: django_password
-      DB_HOST: postgres
+      DB_HOST: localhost
       DB_PORT: 5432
 
     services:
@@ -40,6 +40,13 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Wait for PostgreSQL
+        run: |
+          until pg_isready -h localhost -p 5432 -U django_user -d authdb; do
+           echo "Waiting for PostgreSQL..."
+           sleep 2
+          done
 
       - name: Run migrations
         working-directory: cicd
