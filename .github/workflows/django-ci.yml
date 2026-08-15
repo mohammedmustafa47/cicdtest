@@ -11,6 +11,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      DB_NAME: authdb
+      DB_USER: django_user
+      DB_PASSWORD: django_password
+      DB_HOST: postgres
+      DB_PORT: 5432
+
     services:
       postgres:
         image: postgres:15
