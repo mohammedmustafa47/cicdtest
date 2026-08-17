@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres:15
+    restart: unless-stopped
     container_name: django_cicd_db
     environment:
       POSTGRES_DB: authdb
